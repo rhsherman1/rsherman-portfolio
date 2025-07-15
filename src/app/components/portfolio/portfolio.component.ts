@@ -23,7 +23,7 @@ export class PortfolioComponent {
   summary = 'Experienced .NET C# developer with over 30 years of expertise and proven track record in developing automated workflows, enhancing system performance, and leading successful implementations.';
   
   yearsExperience = 30;
-  workflowExperience = 10;
+  workflowExperience = 13;
   
   skills: Skill[] = [
     { category: 'Languages', items: ['C#', 'C++', '.NET Framework', '.NET Core'] },
