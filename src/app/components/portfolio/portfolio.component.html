@@ -1,0 +1,58 @@
+<div class="portfolio">
+  <header class="hero">
+    <div class="hero-content">
+      <h1>{{name}}</h1>
+      <h2>{{position}}</h2>
+      <p class="summary">{{summary}}</p>
+      <div class="stats">
+        <div class="stat">
+          <span class="number">{{yearsExperience}}+</span>
+          <span class="label">Years Experience</span>
+        </div>
+        <div class="stat">
+          <span class="number">{{workflowExperience}}+</span>
+          <span class="label">Years Workflow Expertise</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="qualities">
+    <h2>Core Strengths</h2>
+    <div class="qualities-grid">
+      <div class="quality-card" *ngFor="let quality of qualities">
+        <div class="quality-icon">{{quality.icon}}</div>
+        <h3>{{quality.title}}</h3>
+        <p>{{quality.description}}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Technical Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-category" *ngFor="let skill of skills">
+        <h3>{{skill.category}}</h3>
+        <div class="skill-tags">
+          <span class="skill-tag" *ngFor="let item of skill.items">{{item}}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience">
+    <h2>Professional Journey</h2>
+    <div class="timeline">
+      <div class="experience-card" *ngFor="let exp of experiences">
+        <div class="exp-header">
+          <h3>{{exp.role}}</h3>
+          <div class="company">{{exp.company}}</div>
+          <div class="period">{{exp.period}}</div>
+        </div>
+        <ul class="highlights">
+          <li *ngFor="let highlight of exp.highlights">{{highlight}}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,62 @@
+<div class="dashboard">
+  <header class="header">
+    <h1>🚀 Team Skill Matrix</h1>
+    <p class="subtitle">Track your dev squad's superpowers</p>
+    <button class="add-btn" (click)="showAddMember = !showAddMember">
+      {{ showAddMember ? '❌ Cancel' : '➕ Add Developer' }}
+    </button>
+  </header>
+
+  <div class="add-member-form" *ngIf="showAddMember">
+    <h3>🧑‍💻 New Team Member</h3>
+    <div class="form-row">
+      <input [(ngModel)]="newMember.name" placeholder="Name" class="input">
+      <input [(ngModel)]="newMember.role" placeholder="Role (e.g., Frontend Dev)" class="input">
+      <input [(ngModel)]="newMember.github" placeholder="GitHub username" class="input">
+    </div>
+    <button (click)="addMember()" class="submit-btn">Add to Squad</button>
+  </div>
+
+  <div class="skills-matrix" *ngIf="members.length > 0">
+    <div class="category-section" *ngFor="let category of getCategories()">
+      <h2 class="category-title">{{ category }} {{ getSkillsByCategory(category)[0]?.icon }}</h2>
+      
+      <div class="matrix-table">
+        <div class="matrix-header">
+          <div class="member-header">Developer</div>
+          <div class="skill-header" *ngFor="let skill of getSkillsByCategory(category)">
+            {{ skill.icon }} {{ skill.name }}
+          </div>
+        </div>
+
+        <div class="matrix-row" *ngFor="let member of members">
+          <div class="member-cell">
+            <div class="member-info">
+              <span class="member-name">{{ member.name }}</span>
+              <span class="member-role">{{ member.role }}</span>
+              <a *ngIf="member.github" [href]="'https://github.com/' + member.github" target="_blank" class="github-link">
+                🐙 GitHub
+              </a>
+            </div>
+          </div>
+          <div class="skill-cell" *ngFor="let skill of getSkillsByCategory(category)">
+            <div class="skill-level level-{{ getSkillLevel(member, skill.name) }}">
+              <span class="level-text">{{ getSkillLevel(member, skill.name) || '?' }}</span>
+              <div class="level-dots">
+                <span class="dot" 
+                      *ngFor="let i of [1,2,3,4,5]" 
+                      [class.active]="i <= getSkillLevel(member, skill.name)">
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="members.length === 0">
+    <h2>🤖 No developers in the matrix yet!</h2>
+    <p>Add your first team member to get started</p>
+  </div>
+</div>

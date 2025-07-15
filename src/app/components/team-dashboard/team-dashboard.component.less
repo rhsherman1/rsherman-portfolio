@@ -1,0 +1,234 @@
+.dashboard {
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+  color: #e0e0e0;
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  h1 {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #00d4ff, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 2rem;
+  }
+}
+
+.add-btn {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.add-member-form {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  backdrop-filter: blur(10px);
+  
+  h3 {
+    margin-bottom: 1.5rem;
+    color: #00d4ff;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .input {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-family: inherit;
+    
+    &::placeholder {
+      color: #888;
+    }
+    
+    &:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+    }
+  }
+  
+  .submit-btn {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.skills-matrix {
+  .category-section {
+    margin-bottom: 3rem;
+    
+    .category-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #ff6b6b;
+      border-bottom: 2px solid rgba(255, 107, 107, 0.3);
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+
+.matrix-table {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.matrix-header {
+  display: flex;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  .member-header {
+    flex: 0 0 250px;
+    padding: 1rem;
+    font-weight: bold;
+    color: #00d4ff;
+  }
+  
+  .skill-header {
+    flex: 1;
+    min-width: 120px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #4ecdc4;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.matrix-row {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .member-cell {
+    flex: 0 0 250px;
+    padding: 1.5rem 1rem;
+    
+    .member-info {
+      .member-name {
+        display: block;
+        font-weight: bold;
+        color: #e0e0e0;
+        margin-bottom: 0.3rem;
+      }
+      
+      .member-role {
+        display: block;
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .github-link {
+        color: #00d4ff;
+        text-decoration: none;
+        font-size: 0.8rem;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
+  .skill-cell {
+    flex: 1;
+    min-width: 120px;
+    padding: 1rem;
+    text-align: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    
+    .skill-level {
+      .level-text {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+      
+      .level-dots {
+        display: flex;
+        justify-content: center;
+        gap: 3px;
+        
+        .dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.2);
+          
+          &.active {
+            background: #4ecdc4;
+          }
+        }
+      }
+      
+      &.level-1 .level-text { color: #ff6b6b; }
+      &.level-2 .level-text { color: #ffa726; }
+      &.level-3 .level-text { color: #ffeb3b; }
+      &.level-4 .level-text { color: #66bb6a; }
+      &.level-5 .level-text { color: #4ecdc4; }
+    }
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem;
+  color: #888;
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
